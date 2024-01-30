@@ -27,7 +27,9 @@ class StorePostRequest extends FormRequest
                 'name' => 'required|unique:profiles',    //  |max:20|min:3|between: 3,10  |boolean (true or false* 0 or1)|date|email|url|unique:(defines which tables it's necessary)   
                 'email' => 'required|email|unique:profiles',   
                 'password' => 'regex:/^(?=.*[A-Za-z])(?=.*\d).{8,}$/|required|confirmed',
-                'bio' => 'min:40'
+                'bio' => 'min:40',
+                'titre'=>'required',
+                'category_id'=>'required',
     
             
         ];

@@ -94,6 +94,7 @@
   
   .login .inputBox input {
     position: relative;
+    height: 40px ;
     width: 100%;
     padding: 15px 20px;
     outline: none;
@@ -102,17 +103,19 @@
     border-radius: 5px;
     background: #fff;
     border: none;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
   }
   
   .login .inputBox ::placeholder {
     color: #8f2c24;
   }
   
-  .login .inputBox #btn {
-    position: relative;
+   #btn {
+    border-radius: 5px;
+    width: 100%;
     border: none;
     outline: none;
+    text-align: center;
     background: #8f2c24;
     color: #fff;
     cursor: pointer;
@@ -121,7 +124,7 @@
     transition: 0.5s;
   }
   
-  .login .inputBox #btn:hover {
+   #btn:hover {
     background: #d64c42;
   }
   

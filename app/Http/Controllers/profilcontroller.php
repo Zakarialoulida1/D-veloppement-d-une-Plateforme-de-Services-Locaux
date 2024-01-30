@@ -6,13 +6,28 @@ use App\Http\Requests\StorePostRequest;
 use App\Models\categorie;
 use App\Models\profiles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class profilcontroller extends Controller
 {
     public function index()
-    {
-        $profiles = profiles::paginate(9);
+    {  
+        $profiles = profiles::orderBy('created_at', 'desc')->get();
+      
+      
+        // $profiles = profiles::select('categories.name AS categoryname', 'profiles.*')
+        // ->join('categories', 'profiles.category_id', '=', 'categories.id')
+        // ->get();
+      
+        // $profiles=DB::table('profiles')
+        // ->select('categories.name AS categoryname ','profiles.*')
+        // ->join('categories','profiles.category_id','=','categories.id')
+        // ->paginate(9);
+    
+
+       
+     
         return view('profil.index', compact('profiles'));
     }
     // public function show(Request $request){
@@ -75,15 +90,11 @@ class profilcontroller extends Controller
 
 
     public function store(StorePostRequest $request)
-    {
-
+    {        
+       
         $validated = $request->validated();
-   
-
         $validated['password'] = Hash::make($request->password);
-
         profiles::create($validated);
-
-        return redirect()->route('profil.index')->with('success',  '  votre compte est bien crée ');
+        return redirect()->route('profil.index')->with('success', '  votre service est bien crée ');
     }
 }

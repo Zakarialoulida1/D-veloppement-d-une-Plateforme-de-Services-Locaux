@@ -28,7 +28,7 @@
     @endif --}}
     <form class="m-2 mx-auto w-50" method="POST" action="{{ route('store') }}">
         @csrf
-        <h3 class="text-center">Create your profile</h3>
+        <h3 class="text-center">Post your service</h3>
         <div class="form-group">
             <label>Nom complete</label>
             <input type="text" name="name" id="" class="form-control" value="{{ old('name') }}">
@@ -73,10 +73,11 @@
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
-        <div>
-            <select name="categorie" id="">
+        <div class="form-group">
+            <label for="">Choose a categorie</label>
+            <select class="form-select mt-2" name="category_id">
                 @foreach ($categories as $categorie)
-                    <option value="{{$categorie->id}}">{{$categorie->name}}</option>
+                    <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
                 @endforeach
             </select>
         </div>

@@ -15,7 +15,7 @@ class profilseeder extends Seeder
      */
     public function run(): void
     {
-        profiles::factory(200)->create();
+        profiles::factory(10)->create();
 
 
         /***********this it work nut it's better to use forctory to generate data and insert them********* */

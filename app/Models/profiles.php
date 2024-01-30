@@ -9,11 +9,18 @@ class profiles extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'name','email','password','bio'
+        'name','email','password','bio','titre','category_id'
     ];
 
     public function getRouteKeyName()
     {
         return 'id';   //by default return the id
+    }
+
+    
+
+    public function category()
+    {
+        return $this->belongsTo(categorie::class,'category_id');
     }
 }

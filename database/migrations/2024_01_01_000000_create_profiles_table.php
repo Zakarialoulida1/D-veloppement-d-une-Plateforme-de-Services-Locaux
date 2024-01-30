@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\categorie;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,9 +19,8 @@ return new class extends Migration
             $table->string('email',70)->unique();
             $table->string('password',60);
             $table->foreignId('category_id')->references('id')->on('categories');
-
             $table->string('bio',200);
-;           $table->timestamps();
+          $table->timestamps();
         });
     }
 

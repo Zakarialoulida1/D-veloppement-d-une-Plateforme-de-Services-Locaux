@@ -25,8 +25,11 @@ use App\Models\Descrip;
 //     ]
 // );
 // });
-
+Route::post('/', [logincontroller::class,'storeUser'])->name('registerUser');
 /************take care that all the routes who have dynamic params must be in the end because sometime it can cause problems************* */
+Route::get('/', [logincontroller::class,'register'])->name('register') ;
+
+
 Route::get('/home', [homecontroller::class,'index'])->name('home.index')  ; //instead of that 'App\Http\Controllers\homecontroller' we do homecontroller::class
 Route::get('/information',[informationcontroller::class,'index'])->name('setting.index');
 Route::get('/profil',[profilcontroller::class,'index'])->name('profil.index');
@@ -39,12 +42,11 @@ Route::post('/profil/store',[profilcontroller::class,'store'])->name('store');
 Route::get('/login',[logincontroller::class,'show'])->name('login.show');
 Route::post('/login',[logincontroller::class,'login'])->name('login');
 
+
+
 // Route::get('/description/{id}',function($id){
 //  return view('secondpage',['descrip'=> Descrip::find($id)]);
 // });
-
-
-
 
 // Route::prefix('/articles')->name('article.')->group(function (){
 

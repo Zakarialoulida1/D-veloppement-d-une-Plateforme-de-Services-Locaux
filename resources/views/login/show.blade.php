@@ -23,8 +23,8 @@
                 <input type="submit" value="Login" id="btn">
             </div>
             <div class="group">
-                <a href="#">Forget Password</a>
-                <a href="#">Signup</a>
+                <a href="#">Create an acoount</a>
+                <a href="{{ route('register') }}">Signup</a>
             </div>
         </div>
 
