@@ -20,17 +20,29 @@
             <div class="login">
                 <h2>Sign Up</h2>
                 <div class="inputBox">
-                    <input type="text" name="name" placeholder="Username Lastname">
+                    <input type="text" name="name" placeholder="Username Lastname" value="{{ old('name') }}">
+                @error('name')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
                 </div>
 
                 <div class="inputBox">
-                    <input type="text" name="email" placeholder="Email">
+                    <input type="text" name="email" placeholder="Email" value="{{ old('email') }}">
+                    @error('email')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="inputBox">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password" value="{{ old('password') }}">
+                    @error('password')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="inputBox">
-                    <input type="password" name="password_confirmation" placeholder="Password_confirmaton">
+                    <input type="password" name="password_confirmation" placeholder="Password_confirmaton" >
+                    @error('password_confirmation')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="d-grid">

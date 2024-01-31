@@ -25,6 +25,6 @@
     {{$slot}}
    </main>
    @include('inc.footer')
-   
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-btb1uQfMg9JQynpwj8AzlZ1/Z9qIvB2LswzjZOfm2JqMmP9dECDb1C5FoKJwO5G5" crossorigin="anonymous"></script>
 </body>
 </html>

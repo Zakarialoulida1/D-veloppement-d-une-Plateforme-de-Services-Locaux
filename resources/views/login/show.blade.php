@@ -16,16 +16,36 @@
         <img src="{{ asset('img/girl.png') }}" class="girl">
         <img src="{{ asset('img/trees.png') }}" class="trees">
         <div class="login">
+            <form method="POST"  action="{{route('login')}}">
+                @csrf
             <h2>Sign In</h2>
-            <x-input class="inputBox" type='text'  name="Username" ></x-input>
-            <x-input class="inputBox" type='password'  name="Password" ></x-input>
+            {{-- <x-input  type='text'  name="Username" ></x-input>
+            <x-input  type='password'  name="Password" ></x-input> --}}
+
             <div class="inputBox">
+            
+                <input type="text" placeholder="Enter EMAIL" name="email" id="" class="form-control" value="{{ old('email') }}">
+                @error('email')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="inputBox">
+              
+                <input type="password" placeholder="Enter Password" class="form-control" name="password" value="{{ old('password') }}">
+                @error('password')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div >
                 <input type="submit" value="Login" id="btn">
             </div>
             <div class="group">
-                <a href="#">Create an acoount</a>
+                <a >Create an acoount</a>
                 <a href="{{ route('register') }}">Signup</a>
             </div>
+            </form>
         </div>
 
     </section>

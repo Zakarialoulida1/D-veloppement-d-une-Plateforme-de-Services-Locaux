@@ -5,6 +5,6 @@
         <x-profilcard  :profil='$profil' />
     @endforeach
     </div>
-
+    {{ $profiles->links() }}
 </x-master>
 

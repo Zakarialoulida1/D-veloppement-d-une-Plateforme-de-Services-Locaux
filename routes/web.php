@@ -25,9 +25,10 @@ use App\Models\Descrip;
 //     ]
 // );
 // });
+Route::get('/', [logincontroller::class,'register'])->name('register') ;
 Route::post('/', [logincontroller::class,'storeUser'])->name('registerUser');
 /************take care that all the routes who have dynamic params must be in the end because sometime it can cause problems************* */
-Route::get('/', [logincontroller::class,'register'])->name('register') ;
+
 
 
 Route::get('/home', [homecontroller::class,'index'])->name('home.index')  ; //instead of that 'App\Http\Controllers\homecontroller' we do homecontroller::class

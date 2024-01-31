@@ -13,8 +13,8 @@ class profilcontroller extends Controller
 {
     public function index()
     {  
-        $profiles = profiles::orderBy('created_at', 'desc')->get();
-      
+        $profiles = profiles::orderBy('created_at', 'desc')->paginate(5);
+    
       
         // $profiles = profiles::select('categories.name AS categoryname', 'profiles.*')
         // ->join('categories', 'profiles.category_id', '=', 'categories.id')
