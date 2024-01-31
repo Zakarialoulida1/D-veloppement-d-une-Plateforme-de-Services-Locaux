@@ -23,11 +23,15 @@
                         <a class="nav-link" href="{{ route('create') }}">Ajouter profil</a>
                     </li>
                 </ul>
-                <form action="{{ route('logout') }}">
+                @auth
+                <form action="{{ route('logout') }}" method="POST">
                     @method('delete')
                     @csrf
                     <button class="nav-link"> Se Déconnecter</button>
                 </form>
+            @endauth
+
+             
             </div>
         </div>
     </nav>
