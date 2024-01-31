@@ -27,7 +27,10 @@ class logincontroller extends Controller
       'email'=>'invalid email or password incorrect',
     ])->onlyInput('email');
   }
-
+   public function logout(){
+    Auth::logout();
+    return to_route('login.show');
+   }
 
   public function register(){
 

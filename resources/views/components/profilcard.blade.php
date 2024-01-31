@@ -1,4 +1,4 @@
-<div class="col-sm-4">
+<div class="col-sm-6 col-md-4">
     
     <div class="card my-4 ">
         <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/03/16/17/32/lorem-4937753_640.jpg"

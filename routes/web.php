@@ -26,6 +26,7 @@ use App\Models\Descrip;
 // );
 // });
 Route::get('/', [logincontroller::class,'register'])->name('register') ;
+Route::delete('/', [logincontroller::class,'logout'])->name('logout') ;
 Route::post('/', [logincontroller::class,'storeUser'])->name('registerUser');
 /************take care that all the routes who have dynamic params must be in the end because sometime it can cause problems************* */
 

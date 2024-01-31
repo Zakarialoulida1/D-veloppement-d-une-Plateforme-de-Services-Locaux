@@ -236,4 +236,8 @@
       transform: translateX(20px) rotate(225deg);
     }
   }
+  .logo{
+    height: 8vh;
+    width: 6vw;
+  }
   
