@@ -21,7 +21,7 @@ class logincontroller extends Controller
     $validated=$request->validated();
     if(Auth::attempt($validated)){
       $request->session()->regenerate();
-     return redirect()->intended(route('profil.index')) ;
+     return redirect()->intended(route('profil.index')) ;   //intended ca permet de garder l'url  choisi avant se se connecter  ou avoir accées 
     }
     return to_route('login.show')->withErrors([
       'email'=>'invalid email or password incorrect',

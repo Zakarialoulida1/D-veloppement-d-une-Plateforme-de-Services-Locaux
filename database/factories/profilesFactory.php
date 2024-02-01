@@ -27,7 +27,6 @@ class profilesFactory extends Factory
             
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'password' => static::$password ??= Hash::make('password'),
             'titre'=>fake()->title(),
             'category_id'=> categorie::inRandomOrder()->first()->id,
             'bio'=>fake()->text(200)

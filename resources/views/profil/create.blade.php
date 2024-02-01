@@ -43,22 +43,7 @@
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password" value="{{ old('password') }}">
-            @error('password')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <label>Confirm the Password</label>
-            <input type="password" class="form-control" name="password_confirmation"
-                value="{{ old('password_confirmation') }}">
-            @error('password_confirmation')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
+   
         <div class="form-group">
             <label>Titre</label>
             <input type="text" name="titre" id="" class="form-control" value="{{ old('titre') }}">

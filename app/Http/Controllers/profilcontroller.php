@@ -13,7 +13,7 @@ class profilcontroller extends Controller
 {
     public function index()
     {  
-        $profiles = profiles::orderBy('created_at', 'desc')->paginate(5);
+        $profiles = profiles::orderBy('created_at', 'desc')->paginate(6);
     
       
         // $profiles = profiles::select('categories.name AS categoryname', 'profiles.*')
@@ -66,7 +66,6 @@ class profilcontroller extends Controller
     //         'email' => 'required|email|unique:profiles',   
     //         'password' => 'regex:/^(?=.*[A-Za-z])(?=.*\d).{8,}$/|required|confirmed',
     //         'bio' => 'min:40',
-
     //     ]);
     //     //insertion
 
@@ -93,8 +92,18 @@ class profilcontroller extends Controller
     {        
        
         $validated = $request->validated();
-        $validated['password'] = Hash::make($request->password);
         profiles::create($validated);
         return redirect()->route('profil.index')->with('success', '  votre service est bien crée ');
     }
-}
+    
+    
+    public function editshow(profiles $profil){
+     return view('profil.edit',compact('profil'));
+    }
+    public function Updateservice(profiles $profil,StorePostRequest $request){
+        $profil->update($request->validated());
+        return view('profil.edit',compact('profil'));
+        return redirect()->route('profil.index')->with('success', 'votre service est bien Modifiée ');
+       }
+       
+}  
