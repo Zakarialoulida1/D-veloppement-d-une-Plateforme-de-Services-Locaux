@@ -12,22 +12,22 @@ use Illuminate\Support\Facades\Hash;
 class profilcontroller extends Controller
 {
     public function index()
-    {  
+    {
         $profiles = profiles::orderBy('created_at', 'desc')->paginate(6);
-    
-      
+
+
         // $profiles = profiles::select('categories.name AS categoryname', 'profiles.*')
         // ->join('categories', 'profiles.category_id', '=', 'categories.id')
         // ->get();
-      
+
         // $profiles=DB::table('profiles')
         // ->select('categories.name AS categoryname ','profiles.*')
         // ->join('categories','profiles.category_id','=','categories.id')
         // ->paginate(9);
-    
 
-       
-     
+
+
+
         return view('profil.index', compact('profiles'));
     }
     // public function show(Request $request){
@@ -47,8 +47,8 @@ class profilcontroller extends Controller
 
     public function create()
     {
-       $categories= categorie::all();
-        return view('profil.create',compact('categories'));
+        $categories = categorie::all();
+        return view('profil.create', compact('categories'));
     }
 
 
@@ -89,21 +89,29 @@ class profilcontroller extends Controller
 
 
     public function store(StorePostRequest $request)
-    {        
-       
+    {
+
         $validated = $request->validated();
         profiles::create($validated);
         return redirect()->route('profil.index')->with('success', '  votre service est bien crée ');
     }
-    
-    
-    public function editshow(profiles $profil){
-     return view('profil.edit',compact('profil'));
+
+
+    public function editshow(profiles $profil)
+    {
+        $categories = categorie::all();
+
+        return view('profil.edit', compact('profil', 'categories'));
     }
-    public function Updateservice(profiles $profil,StorePostRequest $request){
-        $profil->update($request->validated());
-        return view('profil.edit',compact('profil'));
+    public function Updateservice(profiles $profil)
+    {
+      dd($profil);
+        // $profil->update($request->validated());
+
         return redirect()->route('profil.index')->with('success', 'votre service est bien Modifiée ');
-       }
-       
-}  
+    }
+    public function deleteservice(profiles $profil){
+        $profil->delete();
+       return to_route('profil.index')->with('success', '  votre service est bien supprimée ');
+    }
+}

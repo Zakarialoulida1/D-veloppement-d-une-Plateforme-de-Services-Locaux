@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\homecontroller;
 use App\Http\Controllers\informationcontroller;
 use App\Http\Controllers\logincontroller;
@@ -40,7 +41,10 @@ Route::get('/profil',[profilcontroller::class,'index'])->name('profil.index');
 Route::get('/profil/{profil}',[profilcontroller::class,'show'])->name('profil.show')
 ->where('profil','\d+'); //profil:name to specify wich column we want to search by if not specified they take id by default or the return from the function  getRouteKeyName if it was changed and it must to choose something unique
 Route::get('/profil/create',[profilcontroller::class,'create'])->name('create')->middleware('auth');
+Route::get('/profil/editform/{profil}',[profilcontroller::class,'editshow'])->name('editshow');
+Route::put('/profil/edit/{profil}',[profilcontroller::class,'Updateservice'])->name('Updateservice');
 Route::post('/profil/store',[profilcontroller::class,'store'])->name('store');
+Route::delete('/profil/{profil}',[profilcontroller::class,'deleteservice'])->name('deleteservice');
 
 Route::get('/login',[logincontroller::class,'show'])->name('login.show');
 Route::post('/login',[logincontroller::class,'login'])->name('login');
