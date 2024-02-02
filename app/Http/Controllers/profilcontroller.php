@@ -6,6 +6,7 @@ use App\Http\Requests\StorePostRequest;
 use App\Models\categorie;
 use App\Models\profiles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,6 +14,7 @@ class profilcontroller extends Controller
 {
     public function index()
     {
+        
         $profiles = profiles::orderBy('created_at', 'desc')->paginate(6);
 
 
@@ -41,11 +43,13 @@ class profilcontroller extends Controller
     // }
     public function show(profiles $profil)
     {
+       
         return view('profil.detailProfil', compact('profil'));
     }
 
 
     public function create()
+   
     {
         $categories = categorie::all();
         return view('profil.create', compact('categories'));
@@ -92,6 +96,8 @@ class profilcontroller extends Controller
     {
 
         $validated = $request->validated();
+        $validated['user_id']=Auth::id();
+        
         profiles::create($validated);
         return redirect()->route('profil.index')->with('success', '  votre service est bien crée ');
     }
@@ -103,10 +109,10 @@ class profilcontroller extends Controller
 
         return view('profil.edit', compact('profil', 'categories'));
     }
-    public function Updateservice(profiles $profil)
+    public function Updateservice(profiles $profil ,StorePostRequest $request)
     {
-      dd($profil);
-        // $profil->update($request->validated());
+    
+         $profil->update($request->validated());
 
         return redirect()->route('profil.index')->with('success', 'votre service est bien Modifiée ');
     }

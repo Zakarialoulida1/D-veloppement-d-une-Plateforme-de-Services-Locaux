@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StorePostRequest extends FormRequest
 {
@@ -19,18 +20,25 @@ class StorePostRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+    
+
     public function rules(): array
     {
+        $profileId = $this->route()->parameter('profil');
        
+
         return [
             
-                'name' => 'required|unique:profiles',    //  |max:20|min:3|between: 3,10  |boolean (true or false* 0 or1)|date|email|url|unique:(defines which tables it's necessary)   
-                'email' => 'required|email|unique:profiles',   
-                'bio' => 'min:40',
-                'titre'=>'required',
-                'category_id'=>'required',
-    
-            
+            'name' => 'required',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('profiles')->ignore($profileId),
+            ],
+            'bio' => 'min:40',
+            'titre' => 'required',
+            'category_id' => 'required',
+             
         ];
     }
 }

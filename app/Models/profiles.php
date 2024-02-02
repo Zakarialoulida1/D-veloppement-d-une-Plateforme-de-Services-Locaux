@@ -9,7 +9,7 @@ class profiles extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'name','email','bio','titre','category_id'
+        'name','email','bio','titre','category_id','user_id'
     ];
 
     public function getRouteKeyName()

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\categorie;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,7 +25,7 @@ class profilesFactory extends Factory
     public function definition(): array
     {
         return [
-            
+            'user_id'=>User::inRandomOrder()->first()->id,
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'titre'=>fake()->title(),

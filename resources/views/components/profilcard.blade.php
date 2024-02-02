@@ -27,7 +27,8 @@
 
         </div>
         <div class="crad-foot border-top p-3" style="z-index: 9">
-            <form action="{{ route('deleteservice', $profil->id) }}" method="post">
+            
+            <form action="{{ route('deleteservice', $profil) }}" method="post">
                 @method('delete')
                 @csrf
                 <button class="btn btn-danger float-end">Supprimer</button>

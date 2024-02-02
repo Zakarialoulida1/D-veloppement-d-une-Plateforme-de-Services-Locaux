@@ -14,9 +14,9 @@
     <title>social | {{$title}}</title>
 </head>
 <body>
-    @if(!request()->is('/'))
+   
     @include('inc.nav')
-    @endif
+
  
 
    

@@ -50,7 +50,7 @@
                 </div>
                 <div class="group">
                     <p>I have already an Account?</p>
-                    <a href="{{ route('login.show') }}">Signup</a>
+                    <a href="{{ route('login.show') }}">SignIn</a>
                 </div>
             </div>
         </form>
